@@ -19,12 +19,15 @@ def create_readme(script_file):
         # readme_lines = existing_lines + readme_lines
     with open(readme_file, "w", encoding="utf-8") as file:
         file.write("".join(existing_lines))
+        file.write("".join("## "))
+        file.write("".join({script_file}))
         file.write("\n".join(readme_lines))
+        file.write("\n")
 
     print(f"File updated: {readme_file}")
 
 if __name__ == "__main__":
-    script_file = input("Enter file name you want to extract comments from :")
+    script_file = input("Enter file name you want to extract comments from : ")
     if not os.path.exists(script_file):
         raise FileNotFoundError(f"Script file not found: {script_file}")
 
