@@ -14,7 +14,7 @@ $ ./rebase.sh
 
 ```
 
-## rebase.sh
+## 🆁🅴🅱🅰🆂🅴.🆂🅷
 
 !/bin/bash
 
@@ -24,7 +24,7 @@ Fetch the latest changes from the remote repository
 
 Rebase the current branch onto the latest version of the upstream branch
 
-## sync-all-repositories.sh
+## 🆂🆈🅽🅲-🅰🅻🅻-🆁🅴🅿🅾🆂🅸🆃🅾🆁🅸🅴🆂.🆂🅷
 
 !/bin/bash
 
@@ -40,7 +40,7 @@ Update all local branches with their remote counterparts
 
 Go back to the parent directory
 
-## remove-empty-lines-from-all-html.sh
+## 🆁🅴🅼🅾🆅🅴-🅴🅼🅿🆃🆈-🅻🅸🅽🅴🆂-🅵🆁🅾🅼-🅰🅻🅻-🅷🆃🅼🅻.🆂🅷
 
 !/bin/bash
 
@@ -66,7 +66,7 @@ Push the changes to the remote repository
 
 Go back to the parent directory
 
-## windows-startup-programs.bat
+## 🆆🅸🅽🅳🅾🆆🆂-🆂🆃🅰🆁🆃🆄🅿-🅿🆁🅾🅶🆁🅰🅼🆂.🅱🅰🆃
 
 `Note: The script uses the start and echo off commands to open the program and hide any command prompt windows that may appear during startup.`
 
