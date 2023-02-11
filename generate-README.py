@@ -10,14 +10,15 @@ def create_readme(script_file):
     readme_lines = []
     for line in lines:
         if line.startswith("#"):
-            readme_lines.append("\n" + line[1:].strip())
+            readme_lines.append("\n"+ line[1:].strip())
 
     readme_file = "README.md"
     if os.path.exists(readme_file):
         with open(readme_file, "r", encoding="utf-8") as file:
             existing_lines = file.readlines()
-        readme_lines = existing_lines + readme_lines
+        # readme_lines = existing_lines + readme_lines
     with open(readme_file, "w", encoding="utf-8") as file:
+        file.write("".join(existing_lines))
         file.write("\n".join(readme_lines))
 
     print(f"File updated: {readme_file}")
