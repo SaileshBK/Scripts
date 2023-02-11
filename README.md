@@ -1,4 +1,4 @@
-# Scripts
+# Scripts👨🏻‍💻📜
 
 ### These are some random useful scripts.
 
