@@ -9,8 +9,9 @@ def create_readme(script_file):
 
     readme_lines = []
     for line in lines:
+        line = line.strip()
         if line.startswith("#"):
-            readme_lines.append("\n"+ line[1:].strip())
+            readme_lines.append("\n"+ line[1:])
 
     readme_file = "README.md"
     if os.path.exists(readme_file):
