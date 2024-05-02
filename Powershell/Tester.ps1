@@ -1,5 +1,8 @@
 try {
     $filePath = Join-Path -Path $PSScriptRoot -ChildPath "Data\SimpleMath.cs"
+    # Directory from which the PowerShell script is being run.
+    Write-Host "$PSScriptRoot"
+    # Our file path
     Write-Host "$filePath"
     Add-Type -Path $filePath
 
