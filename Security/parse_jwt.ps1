@@ -84,6 +84,26 @@ function Write_Colorful_Table {
     }
 }
 
+function Check_TokenExpiration {
+    param (
+        [PSCustomObject]$Payload
+    )
+    
+    if ($Payload.PSObject.Properties['exp']) {
+        $exp = [DateTimeOffset]::FromUnixTimeSeconds($Payload.exp).DateTime
+        $currentDateTime = Get-Date
+        
+        # Check if the token is expired
+        if ($exp -lt $currentDateTime) {
+            return "Expired"
+        }
+        else {
+            return "Not Expired"
+        }
+    }
+    return "No Expiry Claim"
+}
+
 function Decrypt_JWT {
     param (
         [string]$JWT
@@ -102,6 +122,21 @@ function Decrypt_JWT {
         Write-Host "`n[Signature (Base64 URL)]" -ForegroundColor 'Yellow'
         Write-Host "------------------------------"
         Write-Host $decodedJWT.Signature -ForegroundColor 'Green'
+        Write-Host "------------------------------"
+
+        # Display Other Information (Expiration & Useful Info)
+        Write-Host "`n[Other Information]" -ForegroundColor 'Yellow'
+        Write-Host "------------------------------"
+        
+        # Check if the token has expired
+        $expiryStatus = Check_TokenExpiration -Payload $decodedJWT.Payload
+        Write-Host "Token Expiration Status: $expiryStatus" -ForegroundColor 'Green'
+
+        # Display issued at time (iat) if available
+        if ($decodedJWT.Payload.PSObject.Properties['iat']) {
+            $iat = [DateTimeOffset]::FromUnixTimeSeconds($decodedJWT.Payload.iat).DateTime
+            Write-Host "Issued At (iat): $iat" -ForegroundColor 'Cyan'
+        }
         Write-Host "------------------------------"
     }
     catch {
